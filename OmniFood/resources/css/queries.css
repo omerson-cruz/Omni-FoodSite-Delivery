@@ -1,0 +1,149 @@
+
+/* Big tablet to 1200px (widths smaller than 1140px row) */
+@media only screen and (max-width: 1200px){
+    .hero-text-box {
+        width:  100%;
+        padding: 0 6%;
+    }
+    
+    .row {
+        padding: 0 2%;
+    }
+}
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px){
+    body{
+        font-size: 18px; /* Now we can see the advantage of using percentages or relative unit
+                            in defining the font-size. So we only need to change the font size
+                            in one location */
+    }
+    
+    section{
+        padding: 60px 0;  /* decrease the padding from a larger one*/
+    }
+    
+    .long-copy{
+        width: 80%;
+        margin-left: 10%;
+    }
+    
+    .steps-box{ margin-top: 10px; }
+    .steps-box:last-child{ margin-top: 10px }
+    .works-steps{ margin-bottom: 40px; }
+    .works-steps:last-of-type { margin-bottom: 60px; }
+    
+    .app-screen { width: 50%; }
+    
+    .icon-small { width: 15px; }
+    .city-feature { font-size: 90%; }
+    
+    .plan-box{
+        width: 100%;
+        margin-left: 0%;
+    }
+    
+    .plan-price{ font-size: 250%; }
+    .contact-form{ width:80%; }
+}
+
+/* Small phones to small tablets: from 481px to 767px  */
+@media only screen and (max-width: 767px){
+    body { font-size: 16px;}
+    section { padding: 30px 0;}
+
+/*   THIS IS IMPORTANT: (002 Webpage Responsive - Part2) @11:21)  */
+/*    BY declaring ".col" ino  100% the columns will now be Stacking one over the other
+        instead of sitting side-by-side */
+    .col {
+        width: 100%;
+        margin: 0 0 4% 0;
+    }
+    
+
+    
+    /**************************************/
+    /*   Navigation for Smaller Screen    */
+    /**************************************/
+                               
+                                /* Try to comment out this ".main-nav" to see the effect */  
+    .main-nav{display: none; }  /*   This is before applying any jquery script 
+                                /* Let's hide the navigation while were not yet on 
+                                /*    jQuery part of this tutorial */
+    
+    .mobile-nav-icon {
+        display: inline-block;
+    }
+    .main-nav {
+        float: left;
+        margin-top: 35px;
+        padding-left: 0;
+    }
+    .main-nav li {
+        display: block;
+        margin-left: 15px;
+    }
+    .main-nav li a:link,
+    .main-nav li a:visited {
+        display: block;
+        border: 0;  /* We need to eliminate or remove the border because with 
+                        smaller screens there is no such thing as "Hover effect" because it is 
+                        touch screen and there is no  mouse to hover*/
+        padding: 10px 0;
+        font-size: 100%;
+    }
+    
+    .logo{          /* Decrease the size of logo so that it won't take much of the space */
+        height: 50px;
+        width: auto;
+        float: left;
+        margin-top: 25px;
+    }
+    
+    /* sticky part of mobile navi When Waypoint addClass ".sticky" to the navi */
+    .sticky .main-nav{ margin-top: 10px; }
+
+    .sticky .main-nav li a:link,
+    .sticky .main-nav li a:visited{
+        padding: 10px 0;
+    }
+    .sticky .mobile-nav-icon {
+        margin-top: 10px;
+    }
+    .sticky .mobile-nav-icon i {
+        color: #555;
+    }
+    /*END - Navigation for Smaller Screen */
+    /**************************************/
+    
+    
+    .long-copy{
+        width: 100%;
+        margin-left: 0%;
+    }
+    
+    h1{ font-size: 210%; }
+    h1{ font-size: 160%; }
+    
+    .work-step { margin-bottom: 30px; }
+    .work-step:last-of-type {margin-bottom: 50px; }
+    
+/*    This is for the alignment of the iphone-steps image */
+    .steps-box:first-child {text-align: center;}
+    .app-screen{ width: 30%;}
+    
+    .work-step div{
+
+        height: 40px;  /* height and width are equal to make it circular */
+        width: 40px;   /* height and width are equal to make it circular */
+        padding 3px;
+        margin-right: 10px;
+        font-size: 120%;
+    }
+}
+
+/* Small phones from 0 to 480 px  */
+@media only screen and (max-width: 480px){
+    section { padding: 20px 0; }
+    .contact-form {width: 100%;}
+}

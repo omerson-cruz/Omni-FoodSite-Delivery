@@ -1,0 +1,850 @@
+/* -------------------------------  */
+/*          BASIC SETUP             */
+/* -------------------------------  */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+html,
+body{
+    background-color: #fff;
+    color: #909090;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* set in making webpage responsive part2 @09:32 . 
+                    Dahil may whitespace sa right side kapag 507px(try and see it) ung  */
+}
+
+/* using clearfix because the '.section-steps' did not start to where should start
+    instead '.section-meals' occupies that space which we do not intend to do.
+    (013 Building the how it works section Part 2 - */
+/* this should be adden in "ul.meals-showcase"  because the float was applied on its child elements
+    which are the li elements that has the img. So that after the  ul element that float will be cleared 
+    as specified on ".clearfix:after"*/
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+
+/* ^ FIRST PART  OF ANY CSS  FILES  */
+
+
+/* -------------------------------  */
+/*         REUSABLE COMPONENTS      */
+/* -------------------------------  */
+
+/* 1st step :   Create an absolute measurement 
+which will be the basis for all other relative measurement. 
+1140px will be our first measurement  */
+
+.row {
+    max-width:  1140px;
+    margin:  0 auto;
+}
+
+section{
+    padding: 70px 0;
+}
+
+.box{
+    padding: 2%;
+}
+
+/* -------------------------------  */
+/*             HEADING              */
+/* -------------------------------  */
+
+h1,   /* KEEPING ALL THE COMMON CSS STYLEs IN ONE PLACE  (dagdag-bawas) */
+h2,
+h3{
+
+    font-weight: 300;
+    text-transform:  uppercase;
+
+    
+}
+
+h1{
+    margin-top: 0;
+    margin-bottom: 20px;
+    color:  #ffffff;
+    font-size: 250%;
+    word-spacing: 4px;
+    letter-spacing: 1px;
+}
+
+h2{
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h3{
+    font-size: 110%;
+    margin-bottom: 15px;
+}
+
+/*  DISPLAYING  A CONTENT USING  an :after pseudo class 
+    AND ALSO THIS IS DONE WITHOUT AN HTML ELEMENT  */
+h2:after{
+    display: block;
+    height: 2px;
+    background-color: #f39c12;
+    content: "";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    
+}
+
+/* -------------------------------  */
+/*           PARAGRAPHS             */
+/* -------------------------------  */
+
+.long-copy{
+    line-height: 150%;
+    width: 70%;   
+    margin-left: 15%; /* to center relative to its parent element
+                        the sum of widht plus margin should equal to 100% of parent element
+                        formula  total(100%) = width(70%) + margin-left(15%) + margin-right(15%)*/ 
+}
+
+.box p{
+    font-size: 90%;
+    line-height: 145%;
+}
+
+/* -------------------------------  */
+/*             ICONS                */
+/* -------------------------------  */
+
+.icon-big{
+    font-size: 200%;
+    display: block;
+    color: #f39c12;
+}
+
+/* styling the icons in the cities */
+.icon-small {
+    display: inline-block;  /*the reason why it was declared  an "inline-block" so that 
+        you can assign some width to it since this element (<i></i><) is only an inline element*/
+    width: 30px;
+    height: auto;
+    text-align: center;
+    color: #f39c12;
+    font-size: 120%;
+    
+/*    secrets to align text and icons */
+/*  TRICK-TIPS:   how to allign the icon with the text (015 Building cities section Part2 @06:44*/
+/*    line height should be equal to font-size as well  */
+    line-height: 120%;
+    vertical-align:  middle;  /* this vertical align thing changes the alignment of "not itself but the
+                            text beside this icon which is a sibling of this icon */
+    margin-top: -2px;  /* a positive margin adds some space between border and 
+                            a negative margin Takes the space away from the border and it's adjacent entity/element or other element's borders */
+    margin-right: 5px;
+}
+
+/* -------------------------------  */
+/*        GENERIC LINKS             */
+/* -------------------------------  */
+
+a:link,
+a:visited{
+    color: #f39c12;
+    text-decoration: none;
+    padding-bottom: 1.5px;
+    border-bottom: 1px solid #f39c12;
+    -webkit-transition: border-bottom 0.4s, color 1s;
+    transition: border-bottom 0.4s, color 1s;
+}
+
+a:hover,
+a:active{
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+/* -------------------------------  */
+/*        BUTTONS                   */
+/* -------------------------------  */
+.btn:link,
+.btn:visited,
+input[type="submit"]{    /*<-- this input button style was added later at the project when 
+                            Building the contact form. (021 Building contact form Part 2 - @06:10  */
+    display:  inline-block;
+    padding:  10px 30px;
+    font-weight: 300px;
+    text-decoration:  none;
+    border-radius: 200px;
+    color: #fff;
+    transition:  background-color 0.2s,  border 0.2s, color 02s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"]{  /*<-- this input button style was added later at the project when 
+                            Building the contact form. (021 Building contact form Part 2 - @06:10  */
+    background-color:  #f39c12;
+    border: 1px solid #f39c12;
+    margin-right:  15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited{
+    border: 1px solid #f39c12;
+    color:  #f39c12;
+}
+
+/*  BUTTONS  APPEARANCE  IN ACTIVE STATE  */
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover  /*<-- this input button style was added later at the project when 
+                            Building the contact form. (021 Building contact form Part 2 - @06:10  */
+{
+    cursor: pointer;        /*We need to make it a pointer becu*/
+    background-color: #976008;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type="submit"]:hover  /*<-- this input button style was added later at the project when 
+                            Building the contact form. (021 Building contact form Part 2 - @06:10  */
+{
+
+        border: 1px solid #976008;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active{
+    border: 1px solid #976008;
+    color:  #fff;
+}
+
+
+/* -------------------------------  */
+/* HEADER  */
+/* -------------------------------  */
+
+header{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.28)), url(img/hero.jpg);
+    background-size:  cover;
+    background-position:  center;
+    height: 100vh; /* 100 percent of Viewport Height meaning it is as large as the browser window's current Height*/
+    background-attachment: fixed; /* this is a really cool effect the image does not move when you scroll
+                                        the viewport*/
+}
+
+/* THIS IS A NON - FLUID  GRID  ELEMENT SO WE NEED THE POSITION 
+    TO BECOME ABSOLUTE     
+     ---  MAKING IT ABSOLUTE WILL ALSO ENABLE YOU TO CENTER IT VERTICALLY AND HORiZONTALLY 
+*/
+.hero-text-box {
+    position:  absolute;
+    width:  1140px;
+    top : 50%;
+    left:  50%;
+    transform: translate(-50%, -50%); /* This is a trick to center the  text. Isn't amazing??*/
+}
+
+/* "LOGOS" css settings without the ".sticky" parent class*/
+.logo{
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 20px;
+}
+
+.logo-black{
+    display: none;
+    height: 50px;
+    width: auto;
+    float: left;
+    margin-top: 5px 0;
+}
+
+/* -------------------------------  */
+/* MAIN - NAVIGATION  */
+/* -------------------------------  */
+.main-nav{
+    float: right;
+    list-style: none;
+    margin-top: 60px;
+}
+
+.main-nav li{
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    border-bottom: 3px solid transparent;
+    transition: border-bottom 0.5s;
+    padding: 8px 0;
+    
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+    border-bottom: 2px solid #f39c12;
+}    
+
+/* For Mobile Navigation */
+.mobile-nav-icon{
+    float: right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Select the Icon inside the anchor tag*/
+.mobile-nav-icon i{
+    font-size: 200%;
+    color: #fff;
+}
+
+
+/* -------------------------------  */
+/* STICKY  - NAVIGATION (USING jQuery)  */
+/* -------------------------------  */
+
+.sticky{
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+    /* create some shadows in the nav to make it appear in some areas of the website*/
+    box-shadow: 0 2px 2px #bfbfbf; 
+    /*  defines the vertical stacking of elements so that sticky nav will be visible when
+            we scroll down to the "menu" part 
+    .  We set it to maximum (9999) so that it will always be at the top of the view*/
+    z-index: 9999;
+}
+
+.sticky .main-nav{
+    margin-top: 18px; 
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-nav li a:visited{
+    color: #555;
+    padding: 5px 0;
+    
+}
+
+
+/* If ".logo-black" is inside the ".sticky" then apply the css below.
+    It's because we are going to use jquery to toggle on and off the '.sticky' class in nav element*/
+.sticky .logo-black{
+    display: block;
+}
+.sticky .logo{
+    display: none;
+}
+
+/* -------------------------------  */
+/*           FEATURES:              */
+/* -------------------------------  */
+.section-features .long-copy{
+    margin-bottom: 30px;
+}
+
+
+/* -------------------------------  */
+/*          MEALS IMAGE             */
+/* -------------------------------  */
+.section-meals{
+    padding: 0;  /*this seems to be not working because of the float we applied
+                    as the tutorial said these floats applied need to be cleared */
+}
+
+
+/*  MEAL SHOWCASE  IMAGES WITHOUT using a ".row" class 
+para  masakop ang buong width browser using 
+    <ul> <li></li> .... */
+.meals-showcase{
+    list-style: none;
+    width: 100%;/* for full browser/viewport width*/
+}
+
+.meals-showcase li{
+    display: block;
+    float: left;
+    width: 25%;    /* DIVIDE THE whole width by 4 since there are four images in a list. */
+}
+
+/*   "figure"  element as an img container   */
+.meal-photo{
+    width: 100%;  /* just telling that the <figure> container of img should have a width of 100% percent of                    its element which is the ".meals-showcase li"  */
+    margin: 0;  /* maybe you are wondering why we have to indicate 0 margin again despite the
+                    global "*" margin: 0 declaration above" becuase the normalize.css file defines some
+                    margin for this kind of element so we need to override that again  (par1-010 Building the favorite meals) @12:20. */
+   
+    /*  because of the "transform: scale(1.15)" the images just overflow beyond the borders of this class
+    so we need to hide it using overflow:hidden */
+    overflow: hidden;
+    
+    background-color: rgba(243, 156, 18, 0.58);
+}
+
+.meal-photo img{
+    opacity: 0.80; /*IF WE TRY TO SET THE OPACITY OF IMG then the background-image of its container which
+                        is the "figure (.meal-photo) must be also set for beautification"*/
+    
+    width: 100%; /*ensures that it is as wide as it container try to remove this and see what will happen*/
+    height: auto;
+    transform: scale(1.15);  /* lets zoom it in by default*/
+    transition: transform 0.5s, opacity 0.5s; /* if you dont put this the transformation is just so quick this is like putting some animation  Isn't cooool?? :D .
+                        We are also adding the opacity animation here from blurred to opaque*/
+}
+
+.meal-photo img:hover,
+.meal-photo img:active{
+    opacity: 1;
+    transform: scale(1.03);  /* for effects lets zoom it out when hovering or when clicked */
+}
+    
+    
+    
+/* -------------------------------  */
+/*   SECTION - HOW IT WORKS         */
+/* -------------------------------  */
+
+/* putting a background in the how it works section */
+.section-steps {
+    background-color: #f4f4f4; /* OFF-WHITE color*/
+}
+
+
+/* using psuedo class "nth-child(n)" to select the subclass*/
+.steps-box:nth-child(1){
+    text-align: right; /* text-align property works not only for text but also for 
+                            any inline or "inline-block" elements like the image inside
+                            this selected element ".steps-box:nth-child(1)
+                        */
+    padding-right: 3%;
+    margin-top: 30px;
+}
+
+.steps-box:nth-child(2){
+    padding-left: 3%;
+    margin-top: 70px;
+}
+
+.app-screen{
+    width: 50%;
+}
+
+.work-step{
+    margin-bottom: 50px;
+}
+
+
+/* to create a margin between the work-step and the android and app button */
+/* last-of-type property this is similar to ":last-child" pseudo class  or more similarly 
+    with ":after"  pseudo class but it selects an already existing class rather than creating an element
+    compared with :after pseudo class*/
+.work-step:last-of-type{
+    margin-bottom: 80px;
+}
+
+
+
+
+
+.work-step div{
+    color: #f39c12;
+    border: 2px solid #f39c12;
+    display: inline-block; /* make this as an inline box because that way we can ensure that
+                            the element does not enforce a line break and it can be side by side
+                            with the <p> element next to it*/
+
+    /*  how to make the border of number circular*/
+    border-radius: 50%;   
+    height: 45px;  /* height and width are equal to make it circular */
+    width: 45px;   /* height and width are equal to make it circular */
+    
+    /*  how to center the text inside the circle */
+    text-align: center;
+    padding 5px;
+    font-size: 150%;
+    /************/
+    
+/*    remove this to see what will happen. This is combination to "display: inline-block"
+        The purpose of this float property is to allow the next block element to be placed
+        side-by-side with the text paragraph <p> which is a block element */
+    float: left;
+    /************/
+
+    margin-right: 25px;
+}
+
+/*  Android and Apple  app button */
+
+.btn-app:link,
+.btn-app:visited{
+    border: 0;
+}
+
+
+.btn-app img{
+    height: 50px;
+    margin-right: 12px;
+}
+
+/* -------------------------------  */
+/*       SECTION - CITIES           */
+/* -------------------------------  */
+
+.box img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.city-features{
+    margin-bottom: 5px;
+}
+
+
+/* -------------------------------  */
+/*       SECTION - TESTIMONIALS     */
+/* -------------------------------  */
+
+.section-testimonials{
+    background-image: -webkit-linear-gradient(rgba(77, 72, 72, 0.53), rgba(0, 0, 0, 0.77)), url(img/back-customers.jpg);    
+    background-image: linear-gradient(rgba(77, 72, 72, 0.53), rgba(0, 0, 0, 0.77)), url(img/back-customers.jpg);
+    background-size: cover;
+    color: #fff;
+                                   /*    A new cool CSS background image property*/
+    background-attachment: fixed;  /* this is a really cool effect the image does not move when you scroll
+                                        the viewport*/
+}
+
+blockquote {
+    padding: 2%;
+    font-style: italic; /* this italic style refers to the italic of Lato which is coming from the google italic style you set on the index.html <head> part  
+    (017 building the customer testimonials sectip Part2 @15:25) */
+    line-height: 145%;
+    
+/*    this needs to be relative because we are positioning the BIG QUOTAION MARK as absolute 
+        And the parent element which is this one should be relative*/
+    position: relative;
+    
+    margin-top: 40px;
+}
+
+/*puting a big quotation mark for styling*/
+blockquote:before {
+    content: "\201C";
+    font-size: 500%; /* Increase to 500% para maging in-line sa comment text (try removing and see what will happen */
+/*    to put this into a new line(meaning to have it's own line) 
+        we need to declare it as "display: block"*/
+    display: block;
+/*   When we make an element as absolute positioning. 
+        We need to make its parent as relative positioning */
+    position: absolute;
+    top: -5px;
+    left: -5px;        
+}
+
+
+cite{
+    font-size: 90%;
+    margin-top: 25px;
+    display: block;
+}
+
+cite img{
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    vertical-align: middle; /* aligning the text to center on the middle vertically.
+    This is useful for secnarios wherein an img is larger thatn the height of the text beside it.
+    It was applied with our ICONS with the text on "SECTION-CIITES"*/
+}
+
+
+
+/* -------------------------------  */
+/*    SECTION - PLANS/SIGN-UP       */
+/* -------------------------------  */
+
+.section-plans{
+    background-color: #f6f6f6; /* OFF-WHITE color*/
+}
+
+.plan-box{
+    background-color: #fff;
+    border-radius: 12px;
+    width: 90%;
+    margin-left: 5%; /* centering technique again 
+90%(width) + 5%(left-margin) + 5%(righ-margin - implied ) = 100%(parent element) */
+    
+    margin-bottom: 10px;
+    
+/*    Adding some pampa-ganda like box shadow ;-P */
+    box-shadow: 0 2px 2px;
+}
+
+
+/***************************************/
+.plan-box div{
+    padding: 15px;
+    border-bottom: 1px solid #cbcbcb;
+    margin-bottom: 
+}
+
+.plan-box div:last-of-type{  /*  last of type is the last element of this selector or
+                                similar effect to  ":last-child"  pseudo selector*/
+    border-bottom: 0;
+    text-align: center;
+}
+
+.plan-box div:first-child{
+    background-color: #fcfcfa;
+/*    NAWALA UNG EFFECT ng border-radius sa parent ".plan-box" kaya maglalagay ulit ako ng border-radius dito ( remove this to see )*/
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+/***************************************/
+.plan-price{
+    font-size: 200%;     /* for very large fonts like this one we need to
+                            decrease the font-weight in exchange to that */
+    margin-bottom: 10px;
+    font-weight: 100;
+    color: #f39c12;
+}
+
+/*we're utilizing the span element */
+.plan-price span{
+    font-size: 50%; /* since the parent of this selector is ".plan-price" which is 300%
+                then it's base is that of the 300% not the 20px of the body's font size (019 Bld Sign Up Part2 @09:35*/
+    font-weight: 300; /* since we declared ".plan-price font-weight to 100 we need 
+                to set it back to font-weigth:300 agian (019 Bld Sign Up Part2 @10:28 */
+}
+
+.plan-price-meal{
+    font-size: 80%;
+}
+
+
+.plan-box ul{
+    list-style: none;
+}
+    
+.plan-box ul li{
+    padding: 5px;
+}   
+    
+
+/* -------------------------------  */
+/*        CONTACT -  FORMS          */
+/* -------------------------------  */
+
+.contact-form{
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type="text"],    /*This will select only input with specific "attrib=value" elements*/
+input[type="email"],
+select,
+textarea {
+    width: 100%; /* 100% so that they will fill the whole column of their parent class*/
+    padding: 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;  /* this is the best border color for input forms #ccc */ 
+}
+    
+#newsletter{ /*  I NEED TO REDECLARE THIS as "width:auto" because (try to remove this css property
+                    and see what will happen to checkbox. It will center itself and filling the whole content and moving the text to the next line which is ugly*/
+    width: auto;
+}
+
+textarea{
+    height: 100px;
+}
+
+/* For the input[type=submit] buton you just add that to the Buttons secrtion of this stylesheet */
+
+
+input[type="checkbox"]{      /* give some space to that checkbox */
+    margin: 10px 5px 10px 0;
+}
+    
+*:focus{  /* Remove borders when we focus on an element specially with input-text elements 
+                But this applies to all elements because of the asterisk(*) */
+    outline: none;    
+}
+
+/* -------------------------------  */
+/*            FOOTER                */
+/* -------------------------------  */
+
+footer {
+    background-color: #2e2e2e;
+    padding: 40px;
+    font-size: 80%;  /* reduce the font size from in all of footer's world!. 
+                         So it should be only 80% of the html's fontsize*/
+}
+
+.footer-nav{
+    list-style: none;
+    float: left;   
+}
+
+.social-links{
+    list-style: none;
+    float: right;
+}
+
+/* make the links sit side-by-side by setting the  "display: inline-block" */
+.footer-nav li,
+.social-links li{
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Always remove the last margin of the last "type-of" element like the instagram icon which is 
+    has a right margin. We dont want a right margin there so... */
+.footer-nav li:last-child,
+.social-links li:last-of-type{   /* last of type and last-child are just the same*/
+    margin-right: 0;
+}
+
+
+/*  removing the underline on all the links or anchor tags*/
+.footer-nav li a:link, 
+.footer-nav li a:visited, 
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;     /*removing the "border-bottom" that we have set in LINKS above */
+    color: #b4b4b4;  /* remember to use transition when changing states */
+    -webkit-transition: color 0.4s;
+    transition: color 0.4s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+/*change the color of the social links icon when hovered */
+.social-links li a:link,
+.social-links li a:visited{
+    font-size: 180%;
+    
+}
+
+.ion-social-facebook:hover{
+    color: #3b5998;
+}
+
+.ion-social-twitter:hover{
+    color: #00aced;
+}
+
+.ion-social-googleplus:hover{
+    color: #dd4b39;
+}
+
+.ion-social-instagram:hover{
+    color: #517fa4;
+}
+
+/*transition effect */
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram{
+    -webkit-transition: color .7s;
+    transition: color .7s;
+}
+
+
+/**********************/
+footer p{
+    color: #888;
+    text-align: center;
+    font-size: 80%;
+    margin-top: 30px;
+}
+
+
+
+/******************************************************************************************/
+/* -------------------------------  */
+/*        Animations                */
+/* -------------------------------  */
+
+/* Kailngan the opacity will be from 0 to 1 para makita mo ung animation talaga. Try removing this opacity animation to see what will happen */
+
+.js-wp-1,
+.js-wp-2,
+.js-wp-3 {
+    opacity: 0;
+/*    animation-duration: 1s;*/  /* You can set the animation duration as well. Just remove the comments */
+}
+
+.js-wp-4{
+    -webkit-animation-duration: 5s;    
+    animation-duration: 5s;
+}
+
+.js-wp-1.animated,
+.js-wp-2.animated,
+.js-wp-3.animated {  /* kapag magkadikit meaning the element has .js-wp-1.animated class at the same time */
+/* .js-wp-1  .animated   meaning the element with class .animated is inside the element that has the class of 
+            .js-wp-1   */ 
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
